@@ -3,7 +3,8 @@
 namespace MinimumSpanningTree
 {
     class Program
-    {
+    {   
+
         static void Main(string[] args)
         {
             

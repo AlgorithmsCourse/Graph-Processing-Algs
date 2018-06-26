@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace MinimumSpanningTree
-{
+{ 
     public class Edge: IComparable<Edge>
     {
         double _weight;

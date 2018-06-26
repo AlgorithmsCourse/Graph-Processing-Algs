@@ -27,7 +27,6 @@ namespace MinimumSpanningTree
                 var parsedLine = input[i].Split(' ', 1);
                 var newEdge = new Edge(Convert.ToInt32(parsedLine[0]), Convert.ToInt32(parsedLine[1]), Convert.ToDouble(parsedLine[2]));
                 AddEdge(newEdge);
-                
             }
         }
 
