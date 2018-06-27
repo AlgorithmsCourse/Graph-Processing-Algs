@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MinimumSpanningTree
 {
+    /// <summary>
+    //takes input from file and establishes and EdgeWeighted Graph
+    /// </summary>
     public class EdgeWeightedGraph
     {
         private int _v;
@@ -20,11 +23,12 @@ namespace MinimumSpanningTree
             }
         }
 
+        //Creates Edges from parsed line from input
         public EdgeWeightedGraph(string[] input) :this(Convert.ToInt32(input[0]))
         {
             for(var i =2; i<_v; i++)
             {
-                var parsedLine = input[i].Split(' ', 1);
+                var parsedLine = input[i].Split();
                 var newEdge = new Edge(Convert.ToInt32(parsedLine[0]), Convert.ToInt32(parsedLine[1]), Convert.ToDouble(parsedLine[2]));
                 AddEdge(newEdge);
             }

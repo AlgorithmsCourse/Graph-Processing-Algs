@@ -3,16 +3,16 @@ using System;
 
 namespace MinimumSpanningTree
 {
-    public class MinPQ<Edge> where Edge : IComparable
+    public class MinPQ<Key> where Key : Edge
     {
-        Edge[] _heap;
+        Key[] _heap;
         int N = 0; //size of PQ
         public MinPQ(int size)
         {
-            _heap = new Edge[size];
+            _heap = new Key[size];
         }
 
-        public void Insert(Edge v)
+        public void Insert(Key v)
         {
             _heap[++N] = v;
             Swim(N);
@@ -27,7 +27,7 @@ namespace MinimumSpanningTree
                 child = parent;
             }
         }
-        public Edge DelMin()
+        public Key DelMin()
         {
             var min = _heap[1];
             _heap[1] = _heap[N];
@@ -47,7 +47,7 @@ namespace MinimumSpanningTree
             }
         }
 
-        public Edge Min()
+        public Key Min()
         {
             return _heap[1];
         }
@@ -56,11 +56,12 @@ namespace MinimumSpanningTree
 
         public bool IsEmpty => N == 0;
 
-        private bool Greater(Edge v, Edge w)
+        private bool Greater(Key v, Key w)
         {   
+          
             return v.CompareTo(w)>0;
          }
-        private void Exch(Edge v, Edge w)
+        private void Exch(Key v, Key w)
         {
             var temp = v;
             v = w;
