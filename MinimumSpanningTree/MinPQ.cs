@@ -3,7 +3,7 @@ using System;
 
 namespace MinimumSpanningTree
 {
-    public class MinPQ<Key> where Key : Edge
+    public class MinPQ<Key> where Key : IComparable<Key>
     {
         Key[] _heap;
         int N = 0; //size of PQ
@@ -23,7 +23,7 @@ namespace MinimumSpanningTree
             {
                 var parent = child / 2;
                 if (Greater(_heap[child], _heap[parent])) break;
-                Exch(_heap[child], _heap[parent]);
+                Exch(child, parent);
                 child = parent;
             }
         }
@@ -40,9 +40,12 @@ namespace MinimumSpanningTree
             while (p*2 <= N)
             {
                 var lC = p*2;
-                if (lC < N && Greater(_heap[lC], _heap[++lC])) lC++;
+                if (lC < N && Greater(_heap[lC], _heap[lC+1]))
+                {
+                    lC++;
+                }
                 if (!Greater(_heap[p], _heap[lC])) break;
-                Exch(_heap[p], _heap[lC]);
+                Exch(p, lC);
                 p = lC;
             }
         }
@@ -56,16 +59,16 @@ namespace MinimumSpanningTree
 
         public bool IsEmpty => N == 0;
 
-        private bool Greater(Key v, Key w)
+        private bool Greater(IComparable<Key> v, Key w)
         {   
           
             return v.CompareTo(w)>0;
          }
-        private void Exch(Key v, Key w)
+        private void Exch(int v, int w)
         {
-            var temp = v;
-            v = w;
-            w = temp;
+            var temp = _heap[v];
+            _heap[v] = _heap[w];
+            _heap[w] = temp;
         }
 
  

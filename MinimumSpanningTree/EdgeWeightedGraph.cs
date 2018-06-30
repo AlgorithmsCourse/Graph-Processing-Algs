@@ -26,7 +26,7 @@ namespace MinimumSpanningTree
         //Creates Edges from parsed line from input
         public EdgeWeightedGraph(string[] input) :this(Convert.ToInt32(input[0]))
         {
-            for(var i =2; i<_v; i++)
+            for(var i =2; i<input.Length; i++)
             {
                 var parsedLine = input[i].Split();
                 var newEdge = new Edge(Convert.ToInt32(parsedLine[0]), Convert.ToInt32(parsedLine[1]), Convert.ToDouble(parsedLine[2]));

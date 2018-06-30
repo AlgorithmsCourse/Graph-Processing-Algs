@@ -1,18 +1,29 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
 
 namespace MinimumSpanningTree
 {
-    partial class Program
+    class Program
     {   
 
         static void Main(string[] args)
         {
-
-            var input = File.ReadAllLines(@"C:\Users\beth.hart\source\repos\Algorithms\MinimumSpanningTree\MinimumSpanningTree\tinyEWG.txt");
-            EdgeWeightedGraph ewg = new EdgeWeightedGraph(input);
-            LazyPrimMST mst = new LazyPrimMST(ewg);
-            Console.WriteLine(mst.Weight());
+            string[] dataFiles = new string[]
+            {@"tinyEWG.txt",
+                @"mediumEWG.txt"
+            };
+            foreach (var file in dataFiles)
+            {
+                var input = File.ReadAllLines(file);
+                EdgeWeightedGraph ewg = new EdgeWeightedGraph(input);
+                LazyPrimMST mst = new LazyPrimMST(ewg);
+                foreach (var e in mst.Edges())
+                {
+                    Console.WriteLine(e);
+                }
+                Console.WriteLine(mst.Weight());
+            }
         }
     }
 }
