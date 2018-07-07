@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="mediumEWG.txt" />
+    <None Remove="tinyEWD.txt" />
+    <None Remove="tinyEWG.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="tinyEWD.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="mediumEWG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tinyEWG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GraphDataTypes">
+      <HintPath>..\..\GraphDataTypes\GraphDataTypes\bin\Debug\netcoreapp2.0\GraphDataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="PriorityQueue">
+      <HintPath>..\..\PriorityQueue\PriorityQueue\bin\Debug\netcoreapp2.0\PriorityQueue.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

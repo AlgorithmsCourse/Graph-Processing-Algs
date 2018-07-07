@@ -1,6 +1,8 @@
-﻿namespace MinimumSpanningTree
+﻿
+namespace MinimumSpanningTree
 {
-
+    //connnects all V's of undirected graph
+    //during each iteration, adds the V connected by next smallest edge
     public class EagerPrimMST
     {
         private Edge[] _edgeTo; //list of smallest known edges connecting the index vert to another vert
